@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'upload_screen.dart';
 import 'chatbot_screen.dart';
 import 'impact_screen.dart';
+import 'trend_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,12 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ImpactScreen(),
   ];
 
-  final List<String> labels = const [
-    'Ana Sayfa',
-    'Analiz',
-    'Chat',
-    'Profil',
-  ];
+  final List<String> labels = const ['Ana Sayfa', 'Analiz', 'Chat', 'Profil'];
 
   final List<IconData> icons = const [
     Icons.home_rounded,
@@ -42,9 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 86,
         decoration: const BoxDecoration(
           color: Color(0xFFF1F4EA),
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(22),
-          ),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -81,8 +75,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       fontSize: 12,
                       color: isSelected ? Colors.black : Colors.black54,
-                      fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.normal,
+                      fontWeight: isSelected
+                          ? FontWeight.bold
+                          : FontWeight.normal,
                     ),
                   ),
                 ],
@@ -118,10 +113,7 @@ class _HomeContent extends StatelessWidget {
             const SizedBox(height: 8),
             const Text(
               'Bugün ne yapmak istersin?',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black54,
-              ),
+              style: TextStyle(fontSize: 16, color: Colors.black54),
             ),
             const SizedBox(height: 28),
             Expanded(
@@ -137,22 +129,18 @@ class _HomeContent extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const UploadScreen(),
-                        ),
+                        MaterialPageRoute(builder: (_) => const UploadScreen()),
                       );
                     },
                   ),
                   _HomeCard(
                     title: 'Trend Önerileri',
-                    subtitle: 'AI destekli öneriler',
+                    subtitle: 'Haftanın yükselen ürünleri',
                     icon: Icons.trending_up_rounded,
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const UploadScreen(),
-                        ),
+                        MaterialPageRoute(builder: (_) => const TrendScreen()),
                       );
                     },
                   ),
@@ -163,9 +151,7 @@ class _HomeContent extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const ImpactScreen(),
-                        ),
+                        MaterialPageRoute(builder: (_) => const ImpactScreen()),
                       );
                     },
                   ),
@@ -228,11 +214,7 @@ class _HomeCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                icon,
-                size: 38,
-                color: const Color(0xFF2E7D32),
-              ),
+              Icon(icon, size: 38, color: const Color(0xFF2E7D32)),
               const Spacer(),
               Text(
                 title,
@@ -245,10 +227,7 @@ class _HomeCard extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 subtitle,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.black54,
-                ),
+                style: const TextStyle(fontSize: 12, color: Colors.black54),
               ),
             ],
           ),
