@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/app_button.dart';
 import 'home_screen.dart';
+import 'register_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -35,7 +36,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (currentPage == pages.length - 1) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        MaterialPageRoute(builder: (_) => const RegisterScreen()),
       );
     } else {
       controller.nextPage(

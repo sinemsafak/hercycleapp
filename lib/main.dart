@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const HerCycleApp());
 }
 
@@ -20,7 +24,6 @@ class HerCycleApp extends StatelessWidget {
           seedColor: const Color(0xFF2E7D32),
         ),
         useMaterial3: true,
-        fontFamily: 'Roboto',
       ),
       home: const SplashScreen(),
     );
