@@ -4,6 +4,7 @@ import 'upload_screen.dart';
 import 'chatbot_screen.dart';
 import 'impact_screen.dart';
 import 'trend_screen.dart';
+import 'profile_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,9 +24,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(flex: 1),
-
               const _Header(),
-
               const SizedBox(height: 18),
 
               GridView.count(
@@ -92,7 +91,6 @@ class HomeScreen extends StatelessWidget {
               ),
 
               const Spacer(flex: 2),
-
               const _BottomNav(),
             ],
           ),
@@ -278,13 +276,44 @@ class _BottomNav extends StatelessWidget {
           ),
         ],
       ),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _NavItem(icon: Icons.home_rounded, label: 'Ana Sayfa', active: true),
-          _NavItem(icon: Icons.trending_up_rounded, label: 'Analiz'),
-          _NavItem(icon: Icons.chat_bubble_outline_rounded, label: 'Chat'),
-          _NavItem(icon: Icons.person_outline_rounded, label: 'Profil'),
+          const _NavItem(
+            icon: Icons.home_rounded,
+            label: 'Ana Sayfa',
+            active: true,
+          ),
+          _NavItem(
+            icon: Icons.camera_alt_rounded,
+            label: 'Analiz',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const UploadScreen()),
+              );
+            },
+          ),
+          _NavItem(
+            icon: Icons.chat_bubble_outline_rounded,
+            label: 'Chat',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ChatbotScreen()),
+              );
+            },
+          ),
+          _NavItem(
+            icon: Icons.person_outline_rounded,
+            label: 'Profil',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ProfileScreen()),
+              );
+            },
+          ),
         ],
       ),
     );
@@ -295,35 +324,41 @@ class _NavItem extends StatelessWidget {
   final IconData icon;
   final String label;
   final bool active;
+  final VoidCallback? onTap;
 
   const _NavItem({
     required this.icon,
     required this.label,
     this.active = false,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 62,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 21,
-            color: active ? HomeScreen.green : Colors.black38,
-          ),
-          const SizedBox(height: 3),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 9.5,
-              fontWeight: active ? FontWeight.w800 : FontWeight.w500,
+    return InkWell(
+      borderRadius: BorderRadius.circular(18),
+      onTap: onTap,
+      child: SizedBox(
+        width: 62,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 21,
               color: active ? HomeScreen.green : Colors.black38,
             ),
-          ),
-        ],
+            const SizedBox(height: 3),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 9.5,
+                fontWeight: active ? FontWeight.w800 : FontWeight.w500,
+                color: active ? HomeScreen.green : Colors.black38,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
