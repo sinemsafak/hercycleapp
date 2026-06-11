@@ -19,81 +19,80 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: cream,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 44, 18, 10),
+          padding: const EdgeInsets.fromLTRB(18, 36, 18, 10),
           child: Column(
             children: [
+              const Spacer(flex: 1),
+
               const _Header(),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 18),
 
-              Expanded(
-                child: Center(
-                  child: GridView.count(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 14,
-                    mainAxisSpacing: 14,
-                    childAspectRatio: 0.92,
-                    children: [
-                      _HomeCard(
-                        title: 'Kumaş Analizi',
-                        subtitle: 'Fotoğraf yükle',
-                        icon: Icons.camera_alt_rounded,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const UploadScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      _HomeCard(
-                        title: 'Trend Önerileri',
-                        subtitle: 'Güncel fikirleri gör',
-                        icon: Icons.trending_up_rounded,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const TrendScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      _HomeCard(
-                        title: 'Etki Raporu',
-                        subtitle: 'Üretiminin çevresel etkisi',
-                        icon: Icons.eco_rounded,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const ImpactScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      _HomeCard(
-                        title: 'Destek Chatbotu',
-                        subtitle: 'Hera ile konuş',
-                        icon: Icons.chat_bubble_outline_rounded,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const ChatbotScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
+              GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                crossAxisSpacing: 14,
+                mainAxisSpacing: 14,
+                childAspectRatio: 0.92,
+                children: [
+                  _HomeCard(
+                    title: 'Kumaş Analizi',
+                    subtitle: 'Fotoğraf yükle',
+                    icon: Icons.camera_alt_rounded,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const UploadScreen(),
+                        ),
+                      );
+                    },
                   ),
-                ),
+                  _HomeCard(
+                    title: 'Trend Önerileri',
+                    subtitle: 'Güncel fikirleri gör',
+                    icon: Icons.trending_up_rounded,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const TrendScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  _HomeCard(
+                    title: 'Etki Raporu',
+                    subtitle: 'Üretiminin çevresel etkisi',
+                    icon: Icons.eco_rounded,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const ImpactScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  _HomeCard(
+                    title: 'Destek Chatbotu',
+                    subtitle: 'Hera ile konuş',
+                    icon: Icons.chat_bubble_outline_rounded,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const ChatbotScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
 
-              const SizedBox(height: 10),
+              const Spacer(flex: 2),
+
               const _BottomNav(),
             ],
           ),
@@ -112,14 +111,15 @@ class _Header extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/hercycle_logo.png',
-          width: 44,
-          height: 44,
+          width: 46,
+          height: 46,
           fit: BoxFit.contain,
         ),
         const SizedBox(width: 12),
         const Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 'Merhaba, 👋',
@@ -151,7 +151,7 @@ class _Header extends StatelessWidget {
               BoxShadow(
                 color: Colors.black.withOpacity(0.08),
                 blurRadius: 14,
-                offset: Offset(0, 6),
+                offset: const Offset(0, 6),
               ),
             ],
           ),
@@ -208,31 +208,32 @@ class _HomeCard extends StatelessWidget {
             ],
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 56,
-                height: 56,
+                width: 72,
+                height: 72,
                 decoration: BoxDecoration(
                   color: HomeScreen.softGreen,
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(22),
                   boxShadow: [
                     BoxShadow(
                       color: HomeScreen.green.withOpacity(0.18),
-                      blurRadius: 12,
-                      offset: const Offset(0, 6),
+                      blurRadius: 14,
+                      offset: const Offset(0, 7),
                     ),
                   ],
                 ),
                 child: Icon(
                   icon,
                   color: HomeScreen.green,
-                  size: 31,
+                  size: 40,
                 ),
               ),
-              const Spacer(),
+              const SizedBox(height: 22),
               Text(
                 title,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w900,
@@ -242,6 +243,7 @@ class _HomeCard extends StatelessWidget {
               const SizedBox(height: 5),
               Text(
                 subtitle,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 11.5,
                   color: Colors.black54,
@@ -263,7 +265,6 @@ class _BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 62,
-      margin: const EdgeInsets.only(top: 4, bottom: 4),
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.94),
