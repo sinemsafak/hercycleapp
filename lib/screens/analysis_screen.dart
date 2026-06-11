@@ -16,10 +16,8 @@ class AnalysisScreen extends StatefulWidget {
 }
 
 class _AnalysisScreenState extends State<AnalysisScreen> {
-  int step = 0;
   bool hasError = false;
   String errorMessage = '';
-  String detectedMaterial = '';
 
   final String apiUrl = 'http://10.0.2.2:8000/predict';
 
@@ -32,8 +30,8 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
   Future<void> startAnalysis() async {
     try {
       setState(() {
-        step = 0;
         hasError = false;
+        errorMessage = '';
       });
 
       final request = http.MultipartRequest('POST', Uri.parse(apiUrl));
@@ -42,9 +40,10 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
         await http.MultipartFile.fromPath('file', widget.imageFile.path),
       );
 
-      setState(() => step = 1);
+      final response = await request.send().timeout(
+            const Duration(seconds: 20),
+          );
 
-      final response = await request.send();
       final responseBody = await response.stream.bytesToString();
 
       if (response.statusCode != 200) {
@@ -53,12 +52,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
 
       final data = jsonDecode(responseBody);
 
-      setState(() {
-        detectedMaterial = data['material'] ?? 'Bilinmiyor';
-        step = 2;
-      });
-
-      await Future.delayed(const Duration(milliseconds: 1200));
+      await Future.delayed(const Duration(milliseconds: 900));
 
       if (!mounted) return;
 
@@ -88,10 +82,11 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
   Widget build(BuildContext context) {
     if (hasError) {
       return Scaffold(
+        backgroundColor: const Color(0xFFF8F6EC),
         appBar: AppBar(title: const Text('AI Analizi')),
-        body: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Center(
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
             child: Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
@@ -109,7 +104,10 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                   const SizedBox(height: 16),
                   const Text(
                     'Analiz tamamlanamadı',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 10),
                   Text(
@@ -130,147 +128,124 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
       );
     }
 
-    final pages = [_uploadingView(), _detectingView(), _completedView()];
-
     return Scaffold(
-      appBar: AppBar(title: const Text('AI Analizi')),
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 450),
-        child: pages[step],
+      backgroundColor: const Color(0xFFF8F6EC),
+      appBar: AppBar(
+        title: const Text('AI Analizi'),
+        backgroundColor: const Color(0xFFF8F6EC),
       ),
-    );
-  }
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(22, 18, 22, 20),
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(32),
+              border: Border.all(color: const Color(0xFFE4E7DC)),
+            ),
+            child: Column(
+              children: [
+                const Text(
+                  'AI kumaşı analiz ediyor...',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 24,
+                    height: 1.2,
+                    fontWeight: FontWeight.w900,
+                    color: Color(0xFF143D22),
+                  ),
+                ),
+                const SizedBox(height: 34),
 
-  Widget _uploadingView() {
-    return Center(
-      key: const ValueKey('uploading'),
-      child: Padding(
-        padding: const EdgeInsets.all(28),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(26),
-              child: Image.file(
-                widget.imageFile,
-                height: 190,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 30),
-            const CircularProgressIndicator(color: Color(0xFF2E7D32)),
-            const SizedBox(height: 22),
-            const Text(
-              'Fotoğraf hazırlanıyor...',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF143D22),
-              ),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'Kumaş görseli yapay zekâ modeline gönderiliyor.',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black54),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+                const _AnalysisLine(
+                  emoji: '🧵',
+                  text: 'Materyal algılanıyor',
+                ),
+                const _AnalysisLine(
+                  emoji: '🎨',
+                  text: 'Renk çıkarılıyor',
+                ),
+                const _AnalysisLine(
+                  emoji: '🔍',
+                  text: 'Desen analiz ediliyor',
+                ),
+                const _AnalysisLine(
+                  emoji: '📈',
+                  text: 'Trend skoru hesaplanıyor',
+                ),
+                const _AnalysisLine(
+                  emoji: '✨',
+                  text: 'Uygun ürünler hazırlanıyor',
+                ),
 
-  Widget _detectingView() {
-    return Center(
-      key: const ValueKey('detecting'),
-      child: Padding(
-        padding: const EdgeInsets.all(28),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(
-              width: 120,
-              height: 120,
-              child: CircularProgressIndicator(
-                strokeWidth: 10,
-                color: Color(0xFF2E7D32),
-              ),
-            ),
-            const SizedBox(height: 28),
-            const Text(
-              'Materyal algılanıyor...',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF143D22),
-              ),
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'Model kumaş dokusunu ve görsel özellikleri inceliyor.',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black54),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+                const Spacer(),
 
-  Widget _completedView() {
-    return Center(
-      key: const ValueKey('completed'),
-      child: Padding(
-        padding: const EdgeInsets.all(28),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const CircleAvatar(
-              radius: 42,
-              backgroundColor: Color(0xFFE2EEDB),
-              child: Icon(
-                Icons.check_rounded,
-                size: 54,
-                color: Color(0xFF2E7D32),
-              ),
+                Image.asset(
+                  'assets/images/analysis_screen.png',
+                  height: 190,
+                  fit: BoxFit.contain,
+                ),
+
+                const SizedBox(height: 22),
+
+                const LinearProgressIndicator(
+                  minHeight: 10,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Color(0xFF2E7D32),
+                  backgroundColor: Color(0xFFE7EDE2),
+                ),
+
+                const SizedBox(height: 10),
+
+                const Text(
+                  'Lütfen bekleyin...',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF6A756C),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 24),
-            Text(
-              '$detectedMaterial algılandı',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF143D22),
-              ),
-            ),
-            const SizedBox(height: 14),
-            const _DoneLine(text: 'Kumaş türü bulundu'),
-            const _DoneLine(text: 'Trend skoru hazırlandı'),
-            const _DoneLine(text: 'Ürün önerileri oluşturuldu'),
-          ],
+          ),
         ),
       ),
     );
   }
 }
 
-class _DoneLine extends StatelessWidget {
+class _AnalysisLine extends StatelessWidget {
+  final String emoji;
   final String text;
 
-  const _DoneLine({required this.text});
+  const _AnalysisLine({
+    required this.emoji,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(bottom: 22),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.check_circle, color: Color(0xFF2E7D32), size: 22),
-          const SizedBox(width: 8),
-          Text(text, style: const TextStyle(fontSize: 15)),
+          Text(
+            emoji,
+            style: const TextStyle(fontSize: 24),
+          ),
+          const SizedBox(width: 18),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w800,
+                color: Color(0xFF143D22),
+              ),
+            ),
+          ),
         ],
       ),
     );
