@@ -7,29 +7,29 @@ class TrendScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final trends = [
       {
-        'title': 'Tote Bag',
+        'title': 'Bez Çanta',
         'material': 'Polyester / Denim',
         'score': '92',
         'reason': 'Günlük kullanım ve sürdürülebilir çanta trendi yükselişte.',
         'icon': Icons.shopping_bag_rounded,
       },
       {
-        'title': 'Patchwork Jacket',
-        'material': 'Polyester Spandex',
+        'title': 'Patchwork Ceket',
+        'material': 'Polyester Elastan',
         'score': '87',
         'reason': 'Parça kumaşlarla üretilebildiği için ileri dönüşüme uygun.',
         'icon': Icons.checkroom_rounded,
       },
       {
-        'title': 'Headband',
-        'material': 'Spandex',
+        'title': 'Saç Bandı',
+        'material': 'Elastan',
         'score': '81',
         'reason': 'Küçük kumaş firelerinden üretilebildiği için fire azaltır.',
         'icon': Icons.spa_rounded,
       },
       {
-        'title': 'Scarf',
-        'material': 'Chiffon',
+        'title': 'Şal',
+        'material': 'Şifon',
         'score': '78',
         'reason': 'Hafif kumaşlarda düşük maliyetli üretim fırsatı sunar.',
         'icon': Icons.style_rounded,
