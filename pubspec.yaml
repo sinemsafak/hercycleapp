@@ -67,6 +67,7 @@ flutter:
      - assets/images/hercycle_logo.png
      - assets/images/onboarding_1.png
      - assets/images/onboarding_2.png
+     - assets/images/analysis_screen.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
