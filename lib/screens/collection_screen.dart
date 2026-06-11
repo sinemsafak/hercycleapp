@@ -12,37 +12,83 @@ class CollectionScreen extends StatelessWidget {
     required this.recommendedProducts,
   });
 
- String getImageUrl(String product) {
-  final Map<String, String> imageUrls = {
-    'Sports Bag':
-        'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800',
-    'Gym Accessory':
-        'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800',
-    'Headband':
-        'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800',
-    'Tote Bag':
-        'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800',
-    'Mini Backpack':
-        'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800',
-    'Accessory Pouch':
-        'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=800',
-    'Scarf':
-        'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800',
-    'Summer Blouse':
-        'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=800',
-    'Kimono':
-        'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800',
-    'Patchwork Jacket':
-        'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800',
-    'Mini Skirt':
-        'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800',
-    'Fashion Bag':
-        'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800',
-  };
+  String getTurkishMaterialName(String material) {
+    switch (material) {
+      case 'Spandex':
+        return 'Elastan';
+      case 'Polyester':
+        return 'Polyester';
+      case 'Chiffon':
+        return 'Şifon';
+      case 'Polyester Spandex':
+        return 'Polyester Elastan';
+      default:
+        return material;
+    }
+  }
 
-  return imageUrls[product] ??
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800';
-}
+  String getTurkishProductName(String product) {
+    switch (product) {
+      case 'Sports Bag':
+        return 'Spor Çantası';
+      case 'Gym Accessory':
+        return 'Spor Aksesuarı';
+      case 'Headband':
+        return 'Saç Bandı';
+      case 'Tote Bag':
+        return 'Bez Çanta';
+      case 'Mini Backpack':
+        return 'Mini Sırt Çantası';
+      case 'Accessory Pouch':
+        return 'Aksesuar Kesesi';
+      case 'Scarf':
+        return 'Şal';
+      case 'Summer Blouse':
+        return 'Yazlık Bluz';
+      case 'Kimono':
+        return 'Kimono';
+      case 'Patchwork Jacket':
+        return 'Patchwork Ceket';
+      case 'Mini Skirt':
+        return 'Mini Etek';
+      case 'Fashion Bag':
+        return 'Moda Çantası';
+      default:
+        return product;
+    }
+  }
+
+  String getImageUrl(String product) {
+    final Map<String, String> imageUrls = {
+      'Sports Bag':
+          'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900',
+      'Gym Accessory':
+          'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900',
+      'Headband':
+          'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900',
+      'Tote Bag':
+          'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=900',
+      'Mini Backpack':
+          'https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=900',
+      'Accessory Pouch':
+          'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=900',
+      'Scarf':
+          'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=900',
+      'Summer Blouse':
+          'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=900',
+      'Kimono':
+          'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900',
+      'Patchwork Jacket':
+          'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900',
+      'Mini Skirt':
+          'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900',
+      'Fashion Bag':
+          'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900',
+    };
+
+    return imageUrls[product] ??
+        'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900';
+  }
 
   String getProductDescription(String product) {
     switch (product) {
@@ -75,10 +121,49 @@ class CollectionScreen extends StatelessWidget {
     }
   }
 
+  Widget productImage(String product, double height) {
+    return Image.network(
+      getImageUrl(product),
+      height: height,
+      width: double.infinity,
+      fit: BoxFit.cover,
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress == null) return child;
+
+        return Container(
+          height: height,
+          color: const Color(0xFFE2EEDB),
+          child: const Center(
+            child: CircularProgressIndicator(
+              color: Color(0xFF2E7D32),
+            ),
+          ),
+        );
+      },
+      errorBuilder: (context, error, stackTrace) {
+        return Container(
+          height: height,
+          width: double.infinity,
+          color: const Color(0xFFE2EEDB),
+          child: const Center(
+            child: Icon(
+              Icons.eco,
+              size: 44,
+              color: Color(0xFF2E7D32),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   void showProductDetail(BuildContext context, String product) {
+    final turkishProduct = getTurkishProductName(product);
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
+      backgroundColor: const Color(0xFFF8F6EC),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
@@ -90,27 +175,11 @@ class CollectionScreen extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(22),
-                child: Image.network(
-                  getImageUrl(product),
-                  height: 190,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) {
-                    return Container(
-                      height: 190,
-                      color: const Color(0xFFE2EEDB),
-                      child: const Icon(
-                        Icons.image_not_supported,
-                        size: 48,
-                        color: Color(0xFF2E7D32),
-                      ),
-                    );
-                  },
-                ),
+                child: productImage(product, 190),
               ),
               const SizedBox(height: 18),
               Text(
-                product,
+                turkishProduct,
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -121,7 +190,10 @@ class CollectionScreen extends StatelessWidget {
               Text(
                 getProductDescription(product),
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.black54, height: 1.5),
+                style: const TextStyle(
+                  color: Colors.black54,
+                  height: 1.5,
+                ),
               ),
               const SizedBox(height: 20),
             ],
@@ -137,15 +209,23 @@ class CollectionScreen extends StatelessWidget {
         ? recommendedProducts
         : ['Tote Bag', 'Patchwork Jacket', 'Mini Skirt'];
 
+    final turkishMaterial = getTurkishMaterialName(material);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('HERCYCLE Koleksiyonu')),
+      backgroundColor: const Color(0xFFF8F6EC),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF8F6EC),
+        elevation: 0,
+        foregroundColor: Colors.black87,
+        title: const Text('HERCYCLE Koleksiyonu'),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(22),
+        padding: const EdgeInsets.fromLTRB(22, 12, 22, 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$material kumaştan\nneler üretebilirsin?',
+              '$turkishMaterial kumaştan\nneler üretebilirsin?',
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -170,31 +250,12 @@ class CollectionScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(22),
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ClipRRect(
                             borderRadius: const BorderRadius.vertical(
                               top: Radius.circular(22),
                             ),
-                            child: Image.network(
-                              getImageUrl(product),
-                              height: 130,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) {
-                                return Container(
-                                  height: 130,
-                                  color: const Color(0xFFE2EEDB),
-                                  child: const Center(
-                                    child: Icon(
-                                      Icons.eco,
-                                      size: 42,
-                                      color: Color(0xFF2E7D32),
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
+                            child: productImage(product, 130),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(16),
@@ -214,7 +275,7 @@ class CollectionScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        product,
+                                        getTurkishProductName(product),
                                         style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
