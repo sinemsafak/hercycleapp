@@ -13,7 +13,7 @@
 
 <p align="center"> <sub>HERCYCLE AI — Turning textile waste into opportunity. ♻️</sub> </p>
 
-
+---
 
 **AI-Powered Circular Fashion & Women Entrepreneurship Ecosystem**
 
