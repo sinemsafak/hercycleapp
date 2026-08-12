@@ -1,4 +1,4 @@
-# HERCYCLE AI ♻️
+# HERCYCLE AI ♻️ (SHE LAB 2026 - En Yenilikçi Proje Ödülü)
 
 **AI-Powered Circular Fashion & Women Entrepreneurship Ecosystem**
 
