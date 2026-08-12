@@ -1,5 +1,20 @@
 # HERCYCLE AI ♻️ (SHE LAB 2026 - En Yenilikçi Proje Ödülü)
 
+
+<p align="center"> <img src="https://github.com/user-attachments/assets/e7bbcfcf-99a3-41bd-9185-49de2d4e5b50" width="32%" /> <img src="https://github.com/user-attachments/assets/cc83e6d6-7216-4ec6-b0c8-31102813d39a" width="32%" /> <img src="https://github.com/user-attachments/assets/c55c5ce7-c7d0-4356-9dc3-8478856ec524" width="32%" /> </p>
+
+<p align="center"> <img src="https://github.com/user-attachments/assets/86d98f45-e921-49a3-93cb-c6bc51a36f9e" width="32%" /> <img src="https://github.com/user-attachments/assets/498d4be3-9226-4bdf-91fc-c4dc9aed44c6" width="32%" /> <img src="https://github.com/user-attachments/assets/aef16243-f6a7-4f8e-a76c-9f24bc1d6753" width="32%" /> </p>
+
+<p align="center"> <img src="https://github.com/user-attachments/assets/7ceed945-221d-4aa4-908f-9a8aefc9d0e1" width="32%" /> <img src="https://github.com/user-attachments/assets/8684dbe6-41a1-4104-8927-39d36ff6ec86" width="32%" /> <img src="https://github.com/user-attachments/assets/762ec2e3-6dc2-444c-b722-07faab9e211f" width="32%" /> </p>
+
+<p align="center"> <img src="https://github.com/user-attachments/assets/32339a61-80f0-411a-aa7a-ec2a04eeceb7" width="32%" /> <img src="https://github.com/user-attachments/assets/d1ed6c6b-934c-442a-bc44-7ec4dffc7b60" width="32%" /> <img src="https://github.com/user-attachments/assets/45351591-d137-4358-8058-fe53b5d954c4" width="32%" /> </p>
+
+<p align="center"> <img src="https://github.com/user-attachments/assets/76089eb3-017e-4af0-913e-9c745377d43f" width="32%" /> <img src="https://github.com/user-attachments/assets/fd47f9ee-46f5-44f3-ace8-1148ff634bc8" width="32%" /> </p>
+
+<p align="center"> <sub>HERCYCLE AI — Turning textile waste into opportunity. ♻️</sub> </p>
+
+
+
 **AI-Powered Circular Fashion & Women Entrepreneurship Ecosystem**
 
 HERCYCLE AI, tekstil atıklarını yeniden değerlendirmeyi ve kadın girişimcilerin daha sürdürülebilir, veri odaklı üretim kararları almasını desteklemeyi amaçlayan yapay zekâ tabanlı bir mobil uygulama projesidir.
@@ -241,17 +256,10 @@ HERCYCLE AI'ın uzun vadeli vizyonu, tekstil atıklarının yalnızca çevresel 
 
 ## 👥 Team
 
-HERCYCLE AI, yazılım geliştirme, yapay zekâ, UI/UX, sürdürülebilirlik, kadın girişimciliği ve sosyal etki alanlarında çalışan multidisipliner bir ekip tarafından geliştirilmektedir.
+HERCYCLE AI, yazılım geliştirme, yapay zekâ, UI/UX, sürdürülebilirlik, kadın girişimciliği ve sosyal etki alanlarında çalışan multidisipliner bir ekip tarafından geliştirilmiştir.
 
 ---
 
-## 📌 Project Status
-
-🚧 **Prototype / MVP Development**
-
-Proje aktif olarak geliştirilmektedir.
-
----
 
 ## 📄 License
 
@@ -260,4 +268,4 @@ Projenin kaynak kodu ve kullanılan açık veri setlerinin lisansları ayrı ayr
 ---
 
 **HERCYCLE AI**
-*Turning textile waste into opportunity.* ♻️
+*Tekstil atıklarını fırsta dönüştür.* ♻️
