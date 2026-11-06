@@ -1,4 +1,4 @@
-# HERCYCLE AI ♻️ (SHE LAB 2026 - En Yenilikçi Proje Ödülü)
+# HERCYCLE AI  (SHE LAB 2026 - En Yenilikçi Proje Ödülü)
 
 
 <p align="center"> <img src="https://github.com/user-attachments/assets/e7bbcfcf-99a3-41bd-9185-49de2d4e5b50" width="32%" /> <img src="https://github.com/user-attachments/assets/cc83e6d6-7216-4ec6-b0c8-31102813d39a" width="32%" /> <img src="https://github.com/user-attachments/assets/c55c5ce7-c7d0-4356-9dc3-8478856ec524" width="32%" /> </p>
@@ -23,7 +23,7 @@ Proje; **yapay zekâ, döngüsel moda, sürdürülebilir üretim ve kadın giri�
 
 ---
 
-## 🎯 Problem
+##  Problem
 
 Moda sektöründe;
 
@@ -39,7 +39,7 @@ HERCYCLE AI, bu problemlere teknoloji destekli ve döngüsel bir yaklaşım sunm
 
 ---
 
-## 💡 Çözüm
+##  Çözüm
 
 HERCYCLE AI ile kullanıcılar ellerindeki kumaş veya tekstil materyallerini sisteme tanımlayabilir.
 
@@ -67,9 +67,9 @@ Sistem aynı zamanda moda verilerinden yararlanarak trend ve ürün önerileri s
 
 ---
 
-## 🚀 Temel Özellikler
+##  Temel Özellikler
 
-### 🧵 AI Destekli Kumaş ve Moda Analizi
+###  AI Destekli Kumaş ve Moda Analizi
 
 Computer Vision modelleri kullanılarak kıyafet ve tekstil görsellerinden;
 
@@ -81,13 +81,13 @@ Computer Vision modelleri kullanılarak kıyafet ve tekstil görsellerinden;
 
 gibi özelliklerin belirlenmesi hedeflenmektedir.
 
-### 📈 Trend ve Üretim Önerileri
+###  Trend ve Üretim Önerileri
 
 Moda datasetlerinden elde edilen veriler kullanılarak ürün kategorileri ve trendler analiz edilir.
 
 Amaç, girişimcilere **“Ne üretmeliyim?”** ve **“Hangi ürün daha yüksek potansiyele sahip?”** sorularında veri destekli öneriler sunmaktır.
 
-### ♻️ Upcycling Recommendation Engine
+###  Upcycling Recommendation Engine
 
 Tekstil atıkları için yeterli ve uygun açık veri bulunmadığı durumlarda sistem, **AI + kural tabanlı hibrit bir yaklaşım** kullanır.
 
@@ -97,17 +97,17 @@ Tekstil atıkları için yeterli ve uygun açık veri bulunmadığı durumlarda 
 
 Bu kurallar sürdürülebilir moda ve ileri dönüşüm araştırmaları doğrultusunda oluşturulur.
 
-### 🌱 Sürdürülebilirlik Etkisi
+###  Sürdürülebilirlik Etkisi
 
 Uygulama, yeniden değerlendirilen tekstil materyallerinin etkisini kullanıcıya anlaşılır şekilde göstermeyi hedefler.
 
 Örneğin:
 
-> ♻️ 2.4 kg tekstil atığı yeniden değerlendirildi.
+>  2.4 kg tekstil atığı yeniden değerlendirildi.
 
 Amaç, korku temelli iklim iletişimi yerine **ölçülebilir ve pozitif etkiyi** görünür kılmaktır.
 
-### 💬 Kadın Girişimci Destek Asistanı
+###  Kadın Girişimci Destek Asistanı
 
 HERCYCLE AI içerisinde kadın girişimcilere yönelik destekleyici bir sohbet asistanı planlanmaktadır.
 
@@ -125,7 +125,7 @@ konularında destekleyici konuşmalar sunar.
 
 ---
 
-## 🧠 AI & Veri Yapısı
+##  AI & Veri Yapısı
 
 Projede farklı amaçlara yönelik açık veri kaynaklarından yararlanılmaktadır.
 
@@ -155,7 +155,7 @@ Psikolojik dayanıklılık ve çalışanların mental wellbeing problemlerinin a
 
 ---
 
-## 🏗️ Sistem Mimarisi
+##  Sistem Mimarisi
 
 ```text
                 HERCYCLE AI
@@ -207,7 +207,7 @@ Fashion Analysis  Upcycling
 
 ---
 
-## 📱 Uygulama Akışı
+##  Uygulama Akışı
 
 ```text
 Kullanıcı
@@ -231,7 +231,7 @@ Kullanıcı ayrıca uygulama içerisindeki AI destek asistanı üzerinden giriş
 
 ---
 
-## 🎯 Projenin Hedefleri
+##  Projenin Hedefleri
 
 HERCYCLE AI ile;
 
@@ -246,7 +246,7 @@ hedeflenmektedir.
 
 ---
 
-## 🌍 Vizyon
+##  Vizyon
 
 HERCYCLE AI'ın uzun vadeli vizyonu, tekstil atıklarının yalnızca çevresel bir problem olarak değil, **kadın girişimciler için yeni bir ekonomik üretim kaynağı** olarak değerlendirildiği döngüsel bir moda ekosistemi oluşturmaktır.
 
@@ -254,18 +254,18 @@ HERCYCLE AI'ın uzun vadeli vizyonu, tekstil atıklarının yalnızca çevresel 
 
 ---
 
-## 👥 Team
+##  Team
 
 HERCYCLE AI, yazılım geliştirme, yapay zekâ, UI/UX, sürdürülebilirlik, kadın girişimciliği ve sosyal etki alanlarında çalışan multidisipliner bir ekip tarafından geliştirilmiştir.
 
 ---
 
 
-## 📄 License
+##  License
 
 Projenin kaynak kodu ve kullanılan açık veri setlerinin lisansları ayrı ayrı değerlendirilmelidir. Kullanılan datasetlerin orijinal lisans koşulları geçerlidir.
 
 ---
 
 **HERCYCLE AI**
-*Tekstil atıklarını fırsta dönüştür.* ♻️
+*Tekstil atıklarını fırsta dönüştür.* 
